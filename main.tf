@@ -40,6 +40,7 @@ resource "azurerm_storage_account" "main" {
 }
 
 resource "azurerm_storage_table" "uptime_checks" {
+  depends_on = [azurerm_storage_account.main]
   name                 = "uptimechecks"
   storage_account_name = azurerm_storage_account.main.name
 }
